@@ -1,0 +1,193 @@
+:root {
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --text-color: #c9d1d9;
+  --accent: #58a6ff;
+  --neon-glow: 0 0 6px rgba(88, 166, 255, 0.4), 0 0 12px rgba(88, 166, 255, 0.2);
+}
+
+.react-calendar {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text-color);
+  box-shadow: var(--neon-glow);
+}
+
+.react-calendar__navigation {
+  margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+  background: transparent;
+  color: var(--accent) !important;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  transition: color 0.2s ease;
+}
+
+.react-calendar__navigation button:disabled {
+  color: #524545;
+  opacity: 0.4;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 8px 0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.react-calendar__tile {
+  background: transparent;
+  border: none;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-color);
+  padding: 12px 6px;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #555 !important;
+  opacity: 0.5;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--accent);
+}
+
+.react-calendar__tile--active {
+  background: var(--accent) !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.react-calendar__tile--now {
+  background: rgba(88, 166, 255, 0.2);
+  color: var(--accent);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.calendar-page {
+  min-height: 100vh;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.calendar-header h1 {
+  font-size: 28px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.calendar-header p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.emoji-bubble {
+  font-size: 1.4rem;
+  margin-top: 4px;
+  animation: bounce 1s infinite alternate;
+}
+
+.calendar-insights {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.calendar-card {
+  background: var(--card-bg);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--neon-glow);
+  text-align: center;
+  flex: 1 1 260px;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.calendar-card:hover {
+  transform: translateY(-4px);
+}
+
+.prediction-card {
+  border-left: 4px solid #28b463;
+}
+.prediction-card h3 {
+  color: #28b463;
+}
+
+.insight-card {
+  border-left: 4px solid var(--accent);
+}
+.insight-card h3 {
+  color: var(--accent);
+}
+
+.calendar-container {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: var(--neon-glow);
+  animation: slideUp 0.9s ease-out;
+
+
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-card {
+    flex: 1 1 100%;
+  }
+
+  .calendar-container {
+    width: 95%;
+  }
+}

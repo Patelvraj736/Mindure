@@ -1,0 +1,224 @@
+:root {
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --text-color: #c9d1d9;
+  --accent: #58a6ff;
+  --highlight-bg: rgba(88, 166, 255, 0.1);
+  --error: #ff3b30;
+  --neon-glow: 0 0 6px rgba(88, 166, 255, 0.3), 0 0 12px rgba(88, 166, 255, 0.2);
+}
+
+.emotion-page {
+  min-height: 100vh;
+  background: var(--bg-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-color);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.analyzer-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--neon-glow);
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.analyzer-card h1 {
+  margin-bottom: 1.2rem;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.camera-container {
+  position: relative;
+  width: 100%;
+  margin: 1rem auto;
+  max-width: 440px;
+  margin-bottom: 1rem;
+}
+
+.webcam {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #30363d;
+}
+
+.webcam-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 12px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.live-emotion-box {
+  margin: 1rem 0;
+  background: var(--highlight-bg);
+  padding: 14px 18px;
+  border-left: 5px solid var(--accent);
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--text-color);
+  box-shadow: var(--neon-glow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  font-size: 1.2rem;
+}
+
+.live-emotion-box span {
+  color: var(--error);
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 1.3rem;
+}
+
+.journal-textarea {
+  width: 100%;
+  max-width: 400px;
+  margin: 1.2rem auto; 
+  padding: 0.85rem;
+  border-radius: 10px;
+  color: aliceblue;
+  font-size: 1rem;
+  resize: none;
+  background-color: #161b22;
+  transition: border 0.3s;
+  display: block;
+}
+
+.journal-textarea:focus {
+  border: 1px solid var(--accent);
+  outline: none;
+}
+
+.analyze-button {
+  background: var(--accent);
+  color: white;
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.analyze-button:hover {
+  background: #4292f4;
+}
+
+.analyze-button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 620px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.result-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: var(--neon-glow);
+  text-align: left;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.result-card:hover {
+  transform: scale(1.015);
+}
+
+.result-card h3,
+.result-card h4 {
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.result-card ul {
+  padding-left: 1.2rem;
+  margin: 0;
+  color: #a5b4c3;
+}
+
+.highlight {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.suggestion-card {
+  border-left: 6px solid #28b463;
+  background: #152a1e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.9s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 0.7s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .analyzer-card,
+  .results-container {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .journal-textarea {
+    height: 100px;
+  }
+}

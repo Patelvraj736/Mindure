@@ -1,0 +1,133 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 10px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(88, 166, 255, 0.05);
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+  top: -100px;
+}
+
+.navbar-visible {
+  top: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+.navbar-logo {
+  width: 60px;
+  margin-right: 8px;
+}
+
+.navbar-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #58a6ff;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  color: #c9d1d9;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #58a6ff;
+  text-shadow: 0 0 6px rgba(88, 166, 255, 0.5);
+}
+
+.logout-button {
+  background: linear-gradient(135deg, #ff4d4f, #d9363e);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+  background: #c62828;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #58a6ff;
+  transition: all 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(13, 17, 23, 0.95);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    z-index: 999;
+  }
+
+  .navbar-links.open {
+    max-height: 300px;
+    padding-bottom: 10px;
+  }
+
+  .navbar-links a,
+  .logout-button {
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  .bar1.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .bar2.active {
+    opacity: 0;
+  }
+
+  .bar3.active {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}

@@ -1,0 +1,96 @@
+:root {
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --text-color: #c9d1d9;
+  --accent: #58a6ff;
+  --neon-glow: 0 0 6px rgba(88, 166, 255, 0.4), 0 0 12px rgba(88, 166, 255, 0.2);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-container {
+  padding: 0rem 2rem 2rem 2rem;
+
+  min-height: 100vh;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #58a6ff;
+  font-weight: bold;
+ 
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--neon-glow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.5), 0 0 20px rgba(88, 166, 255, 0.3);
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: #a5b4c3;
+}
+
+.chart-container {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--neon-glow);
+  margin-top: 2rem;
+}
+
+.forecast-card {
+  background: #1a1f2b;
+  border-left: 4px solid #58a6ff;
+  box-shadow: var(--neon-glow);
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.forecast-card:hover {
+  background: #222738;
+  transform: translateY(-5px);
+}
+.dashboard-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #58a6ff;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 1.6rem;
+  }
+}
